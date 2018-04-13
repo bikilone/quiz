@@ -33,10 +33,10 @@
   margin: 0 auto;
   background-color: skyblue;
 }
-.answer {
+.answer textarea{
   height: 200px;
   width: 600px;
-  margin: 0 auto;
+  margin: 50px auto;
   background-color: skyblue;
 }
 .correct-answer {
