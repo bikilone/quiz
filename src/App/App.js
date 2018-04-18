@@ -61,7 +61,10 @@ previousPage = () => {
   })
 }}
 
+
+
   render() {
+    console.log(finalData.length);
     
     return (
       <div className="App">
