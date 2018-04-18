@@ -28,15 +28,15 @@
 }
 
 .question {
-  height: 200px;
+  height: 100px;
   width: 600px;
   margin: 0 auto;
   background-color: skyblue;
 }
 .answer textarea{
-  height: 200px;
+  height: 100px;
   width: 600px;
-  margin: 50px auto;
+  margin: 20px auto;
   background-color: skyblue;
 }
 .correct-answer {
@@ -46,8 +46,8 @@
   background-color: skyblue;
 }
 .check-answer {
-  margin: 30px;
+  margin: 10px;
 }
 .next-question {
-  margin: 30px;
+  margin: 10px;
 }

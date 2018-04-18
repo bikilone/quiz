@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import html from "../Data/html";
+import finalData from "../Data/html";
 
 
-const length = html.length;
+const length = finalData.length;
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ showAnswer = (e) => {
 
 renderAnswer = () => {
   if ( this.state.p ) {
-    return html[this.state.i].answer;
+    return finalData[this.state.i][1];
   } else {
     return "";
   }
@@ -64,7 +64,7 @@ previousPage = () => {
           <h1 className="App-title">Welcome to BIT-QUIZ</h1>
         </header>
         <div className="question">
-          <p>{html[this.state.i].question}</p>
+          <p>{"#" + finalData[this.state.i][2] + "\n"  + finalData[this.state.i][0]}</p>
         </div>
         <div className="answer">
           <textarea name="" id="" cols="30" rows="10" placeholder="Write your answer here!"></textarea>
