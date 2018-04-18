@@ -11,7 +11,8 @@ class App extends Component {
     super(props) 
     this.state = {
       i: 0,
-      p: false
+      p: false,
+      answer: ""
     }
   }
 
@@ -22,7 +23,7 @@ nextPage = (e) => {
       })
     } else {
     this.setState((prevState, props) => {
-      return {i: prevState.i + 1,  p: !prevState.p}
+      return {i: prevState.i + 1,  p: !prevState.p, answer: ""}
     })
 } }
 // showAnswer = (e) => {
@@ -43,6 +44,12 @@ renderAnswer = () => {
     return "";
   }
 }
+
+answer = (e) => {
+  this.setState({
+    answer: e.target.value
+  })
+}
 previousPage = () => {
   if (this.state.i === 0) {
     this.setState((prevState, props) => {
@@ -55,8 +62,7 @@ previousPage = () => {
 }}
 
   render() {
-    console.log(this.state.p);
-    console.log(this.state.i);
+    console.log(this.state.answer);
     
     return (
       <div className="App">
@@ -67,7 +73,7 @@ previousPage = () => {
           <p>{"#" + finalData[this.state.i][2] + "\n"  + finalData[this.state.i][0]}</p>
         </div>
         <div className="answer">
-          <textarea name="" id="" cols="30" rows="10" placeholder="Write your answer here!"></textarea>
+          <textarea name="" id="" cols="30" rows="10" placeholder="Write your answer here!" value={this.state.answer} onChange={this.answer}></textarea>
         </div>
         <button className="check-answer" onClick={this.showAnswer}>Submit</button>
         <div className="correct-answer">
