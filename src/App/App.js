@@ -62,7 +62,6 @@ previousPage = () => {
 }}
 
   render() {
-    console.log(this.state.answer);
     
     return (
       <div className="App">
