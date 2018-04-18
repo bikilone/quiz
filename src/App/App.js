@@ -67,6 +67,8 @@ onKeyUp = (e) => {
     this.nextPage();
   } else if (e.keyCode === 13) {
     this.showAnswer();
+  } else if (e.keyCode === 37) {
+    this.previousPage()
   }
 }
 
