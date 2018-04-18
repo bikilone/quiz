@@ -61,10 +61,21 @@ previousPage = () => {
   })
 }}
 
+onKeyUp = (e) => {
 
+  if (e.keyCode === 39) {
+    this.nextPage();
+  } else if (e.keyCode === 13) {
+    this.showAnswer();
+  }
+}
+
+componentDidMount() {
+  document.addEventListener("keyup", this.onKeyUp)
+}
 
   render() {
-    console.log(finalData.length);
+    
     
     return (
       <div className="App">
