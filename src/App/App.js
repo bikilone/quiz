@@ -96,6 +96,12 @@ removeQuestion = ()=> {
           <h1 className="App-title">Welcome to BIT-QUIZ</h1>
         </header>
         <p>{(this.state.i/finalData.length)*100 + "%"}</p>
+        <div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="70"
+  aria-valuemin="0" aria-valuemax="100" style={{width:(this.state.i/finalData.length)*100 + '%'}}>
+    <span class="sr-only">{(this.state.i/finalData.length)*100 + "%"}</span>
+  </div>
+</div>
         <div className="question">
           <p>{"#" + finalData[this.state.i][2] + "\n"  + finalData[this.state.i][0]}</p>
         </div>
