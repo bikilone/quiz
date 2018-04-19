@@ -95,6 +95,7 @@ removeQuestion = ()=> {
         <header className="App-header">
           <h1 className="App-title">Welcome to BIT-QUIZ</h1>
         </header>
+        <p>{(this.state.i/finalData.length)*100 + "%"}</p>
         <div className="question">
           <p>{"#" + finalData[this.state.i][2] + "\n"  + finalData[this.state.i][0]}</p>
         </div>
