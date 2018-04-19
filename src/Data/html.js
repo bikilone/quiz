@@ -4,6 +4,8 @@
 
 // export default html;
 
+
+
 var question = [["Sta znaci kad kazemo da je modul singleton?", "Importuje se samo jednom, iako ga mi importujemo vise puta"], ["Koja su dva nacina za eksportovanje modula", "CommonJs i AMD"], ["Kako eksportujemo fajl u CommonJS-u?", "Sa modul.exports"], ["Kako importujemo fajl u CommonJS-u?", "Sa require"], ["Koji su nacini za export u ES6?", "export i export default"], ["Kako importujemo u ES6?", "import from"], ["Kako u ES6 mozemo sve da importujemo sto je eksportovano iz nekog fajla>", "sa import * from"], ["Objasni razliku izmedju sinhronog, threaded i asinhronog modela?", "sinhroni - taskovi se izvrsavaju jedan za drugim, threaded - vise paralelinih threadova, asinhroni - vise procesa odjednom, radimo druge zadatke dok se ne zavrsi nesto iz prethodnog npr fetch"], ["Kako se zove thread u broewseru? ", "Event loop"], ["Sta je promis objekat?", "Vrednost koja ce mozda biti dostpuna buducnosti"], ["Koja stanja mogu da imaju promisi?", "pending, resolve, reject"], ["Koji su promis metodi?", "then, catch, all, race, resolve"], ["Koje parametre prima .then?", "dve kolbek funkcije, prva je resolve, druga je reject"], ["Koje parametre prima .catch?", "Kolbek funkciju koja ce se izvrsiti on reject?"], ["Da li fetch izbacuje gresku na 404?", "Jok tebra"], ["Koje tri vrste servera postoje?", "web, aplikativni, database"], ["Sta je node.js", "JS bez browsera, sluzi za servere bla bla.."], ["Sta je platforma?", "Hardver/softver za koje je napravljen neki kod"], ["Primeri platformi?", "mac, windows, android, sony playstation, xbox..."], ["Sta je framework/libraru?", "Daju kod koji moze da se koristi vise puta i sluze kao temelj aplikaciji..."], ["U cemu je razlika izmedju library i frameworka?", "Inverion of Control, mi kontrolisemo biblioteku, framework kontrolise nas - masoni"], ["Sta je SDK?", "Software Develpoment Kit"], ["Sta se nalazi u SDK?", "Sve alatke potrebne da bi se radilo u nekoj platformi "], ["Sta je API?", "Aplication Programming Intreface"], ["Sta znaci kad je neka aplikacija stateless?", "Ne cuva podatke"], ["Kako browser zaobilazi statelessness?", "Cookies, caching, local storage"], ["Koje vrste kukija postoje?", "in memory, persistent"], ["Koja je razlika izmedju in-memory i persistent kukija?", "prvi nestaju kad se ugasi browser, drugi ostaju na hard disku"], ["Koji je kapacitet kukija?", "do 4kb"], ["Koji je kapacitet local storage-a?", "5-10 mb"], ["Koje vrste storage postoje?", "local i session"], ["Razlika izmedju local i session storage-a?", "local - postoji dok se ne ukloni, nema rok trajanja, session - postoji dok se ne ugasi tab, ima scope jednog browsera"], ["Navedi metode Web storage-a", "setItem, getItem, removeItem, clear, key"], ["Na kom principu se cuvaju podaci u storage-u?", "key-value"], ["STa je funkcionalno programiranje?", "Funckije su bazicne jedinice rada, sve se odvija oko njih"], ["Razlika izmedju deklarativnog i funckionalnog programiranja?", "Deklarativno programiranje je stil programiranja aplikacija gde je prioritet na opisivanju STA bi nesto trebalo da se odradi, umesto na definisanju KAKO bi trebalo da se odradi; Imperativno programiranje je stil programiranja koji se jedino brine KAKO da se postigne rezultat."], ["Koji su funckonalni koncepti?", "Immutability, pure functions, data transformations, higher-order functions, recursion"], ["Sta je immutability?", "Ne menjamo originalne podatke, nego pravimo kopije istih"], ["Sta znaci pure function?", "Prima bar jedan argument i vraca vrednost na osnovu svojih argumenta, ne dirajuci globalni skoup"], ["Sta su higher-order funcitons?", "F-je koje mogu da primaju druge funkcije kao parametre i mogu da ih returnuju"], ["Sta je rekurzija?", "Funkcija koja zove samu sebe"], ["Za sta sluzi react, a za sta reactDOM?", "React kreira viewove, a react dom sluzi za renderovanje"], ["Virtualni DOM je skup cega?", "JS objekata"], ["Sta od parametara prima React.createElement?", "naziv elementa koji zelimo da napravimo, njeogove propse, njegovu decu"], ["U sta se pretvara : React.createElement('h1', null, 'Pesto Pasta')", "<h1>Pedro Pasta</h1>"],  ["Sta prima ReactDOM.render?", "element koji zelimo da renderujemo i neki html element koji zelimo da bude roditelj nasoj komponenti"], ["Razlika izmedju statefull i stateless komponenti?", "Prve su funkcije, primaju prospe i nemaju svoj this"], ["Sta je JSX?", "java script extension ili alternativa React.createElement()"], ["Sta je create react app?", "tool razvijen od strane fejsbuka za setup-vanje projekta"], ["Sta su propsi?", "js objekti"], ["Da li smemo da menjamo propse?", "Nikako, oni su read-only"], ["Koja su dva primarna life-cycle-a?", "mounting i updating"], ["Koji su mounting life-cycle metodi?", "constructor(props)- tehnicki nije, componentWillMount(), render(), componentDidMount(), componentWillUnmount()"], ["Koje su updating life-cycle metodi?", "componentWillRecieveProps, shouldCOmponentUpdate, componentWillUpdate, componentDidUpdate"], ["Koju biblioteku koristimo za navigaciju u reactu", "react-router"], ["Za sta sluzi Switch komponenta?", "Menjanje komponenti u zavisnosti od winodw.location"], ["Za sta sluzi Redirect?", "Kada vise puteva vodi kao istoj komponenti"], ["Za sta sluzi Link?", "Umesto <a/>"], ["Kako mozemo da pristupimo parametru koji je prosledjen preko url?", "props.match.params.(naziv naseg propsa)"], ["Za sta sluzi Babel>", "Za prevodjenje iz ES6 u ES5 jer ne podrzavaju svi browseri ES6"]];
 
 
@@ -21,8 +23,35 @@ finalData.push(...question);
 finalData.push(...questionsWeb);
 finalData.push(...questionJS);
 finalData.push(...questionsAJAX);
+console.log("start", finalData.length);
+
+
+if(localStorage.length !== 0) {
+
+var questions = localStorage.getItem("questions") 
+
+
+questions = JSON.parse(questions);
+// finalData = finalData.filter(e => storage.includes(e))
 
 finalData.forEach((e,i) => e[2] = i)
+var newArray = finalData;
+finalData = [];
+
+for ( var i = 0; i < newArray.length; i++) {
+    if(questions.indexOf(newArray[i][2]) === -1) {
+        
+        finalData.push(newArray[i])
+    }
+}
+
+console.log("questions",questions.length);
+console.log("finalData", finalData.length);
+
+} else {
+    finalData.forEach((e,i) => e[2] = i)
+}
+
 
 var length = finalData.length;
 var current;

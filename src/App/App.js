@@ -23,7 +23,7 @@ nextPage = (e) => {
       })
     } else {
     this.setState((prevState, props) => {
-      return {i: prevState.i + 1,  p: !prevState.p, answer: ""}
+      return {i: prevState.i + 1,  p: false, answer: ""}
     })
 } }
 // showAnswer = (e) => {
@@ -57,7 +57,7 @@ previousPage = () => {
     })
   } else {
   this.setState((prevState, props) => {
-    return {i: prevState.i - 1,  p: !prevState.p}
+    return {i: prevState.i - 1,  p: false}
   })
 }}
 
@@ -72,8 +72,19 @@ onKeyUp = (e) => {
   }
 }
 
+
+
 componentDidMount() {
-  document.addEventListener("keyup", this.onKeyUp)
+  document.addEventListener("keyup", this.onKeyUp);
+}
+
+removeQuestion = ()=> {
+  var questions = localStorage.getItem("questions") || "[]";
+  questions = JSON.parse(questions);
+  questions.push(finalData[this.state.i][2]);
+  questions = JSON.stringify(questions);
+   localStorage.setItem("questions", questions)
+   this.nextPage();
 }
 
   render() {
@@ -91,6 +102,7 @@ componentDidMount() {
           <textarea name="" id="" cols="30" rows="10" placeholder="Write your answer here!" value={this.state.answer} onChange={this.answer}></textarea>
         </div>
         <button className="check-answer" onClick={this.showAnswer}>Submit</button>
+        <button onClick={this.removeQuestion}>I don't want to se this question ever again!!!</button>
         <div className="correct-answer">
           <p>{this.renderAnswer()}</p>
         </div>
