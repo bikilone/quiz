@@ -45,9 +45,6 @@ for ( var i = 0; i < newArray.length; i++) {
     }
 }
 
-console.log("questions",questions.length);
-console.log("finalData", finalData.length);
-
 } else {
     finalData.forEach((e,i) => e[2] = i)
 }

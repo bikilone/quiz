@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import finalData from "../Data/html";
+// import finalData from "../Data/html";
+import finalData from "../Data/rtp"
 
 
 const length = finalData.length;
