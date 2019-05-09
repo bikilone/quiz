@@ -387,10 +387,12 @@ if (localStorage.getItem("questions") !== null) {
     if (questions.indexOf(newArray[i][2]) === -1) {
       finalData.push(newArray[i]);
     }
+
   }
 
   console.log("questions", questions.length);
   console.log("finalData", finalData.length);
+
 } else {
   finalData.forEach((e, i) => (e[2] = i));
 }
