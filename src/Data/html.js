@@ -371,7 +371,7 @@ finalData.push(...question);
 finalData.push(...questionsWeb);
 finalData.push(...questionJS);
 finalData.push(...questionsAJAX);
-console.log("start", finalData.length);
+// console.log("start", finalData.length);
 
 if (localStorage.getItem("questions") !== null) {
   var questions = localStorage.getItem("questions");
